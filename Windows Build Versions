@@ -1,0 +1,2 @@
+#report on current Windows Build version to make sure Windows Build stay up to date/current. Can wrap this with a Windows task scheduler + wrap with SMTP request over to an alert styled service account email.
+_sourceCategory=windows/build AND _message=build version | json field=_raw "build version" as build_version | count by build_version
