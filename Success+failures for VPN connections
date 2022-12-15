@@ -1,4 +1,4 @@
-Success and failures for logins into a given VPN endpoint.
+#Success and failures for logins into a given VPN endpoint.
 _sourceCategory=vpn/connection
 | json "success" as success
 | if(success=="true", "Success", "Failure") as connection_status
