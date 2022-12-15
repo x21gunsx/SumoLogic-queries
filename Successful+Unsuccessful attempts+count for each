@@ -1,4 +1,4 @@
-#This query assumes that the logs for authentication events contain a field for the username and a field for the status (e.g. "success" or "failure"). 
+#This query assumes that the logs for authentication events contain a field for the username and a field for the status (e.g. "success" or "failure"). Which is how the domain controller should be logging the logins. Same on the syslog side (Linux/Unix), there should always be success and failures to deliniate between the two in a given log.
 #The query parses these fields from the logs and then uses an if statement to categorize the login attempts as either successful or unsuccessful. 
 #Finally, it counts the number of login attempts by login status and username.
 #You can adjust the details of this query to fit the specific format and fields of your logs. For example, if the field for the username is called "user" instead of "username", you can update the parse statement to reflect this
