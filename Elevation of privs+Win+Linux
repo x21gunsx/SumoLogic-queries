@@ -1,0 +1,18 @@
+Elevation of privileges in Windows hosts.
+_sourceCategory=windows/security
+(EventID=4656 OR EventID=4658 OR EventID=4659)
+AND (ObjectType="Token" OR ObjectType="Process")
+AND (AccessMask="0x1414" OR AccessMask="0x1410" OR AccessMask="0x1408")
+AND (AccessReason="Bypass Traverse Checking" OR AccessReason="Privilege Use")
+| json "ObjectName" as user, "AccessMask" as privilege, "AccessReason" as reason
+| count by user, privilege, reason
+
+Elevation of privileges in a Linux/Unix host, last 10 successful.
+
+_sourceCategory=linux/unix
+| json field=_raw "command" as command
+| search command=sudo OR command=su
+| where isSuccess=false
+| count by user
+| sort by _count desc
+| limit 10
