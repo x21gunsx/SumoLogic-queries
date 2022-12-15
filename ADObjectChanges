@@ -1,0 +1,2 @@
+#Reporting of AD object changes+user changes
+sourceCategory="Windows/Security" AND "EventCode=4738" AND "Object Type: User"
