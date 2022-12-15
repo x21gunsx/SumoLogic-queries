@@ -1,0 +1,2 @@
+#Assumes messages match to "modified" or "change" somewhere within the log file.
+sourceCategory=system/firewall* AND (message="modified" OR message="change")
